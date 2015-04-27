@@ -176,7 +176,12 @@
 			if( message === '' ) {
 				message = key;
 			}
-			return this.parser.parse( message, parameters );
+			var parsedMessage = this.parser.parse( message, parameters );
+			if(parsedMessage !== key) {
+				return parsedMessage;
+			} else {
+				return undefined;
+			}
 		}
 	};
 
